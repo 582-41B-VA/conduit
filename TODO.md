@@ -1,5 +1,15 @@
 # TODOs
 
+# Tasks
+
+- [ ] Setup CI (formatting checks, linters, etc.)
+- [ ] Setup gitignore
+- [ ] Install SvelteKit
+- [ ] Install FastAPI
+- [ ] Test a fake endpoint (to connect SK and FastAPI)
+
+## User stories
+
 - [ ] Users can view a paginated list of articles. Articles can be
       filtered by tags and author.
 - [ ] Users can view an article.
