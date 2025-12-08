@@ -3,6 +3,9 @@ on: [push]
 jobs:
   continuous-integration:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./server
     steps:
       - uses: actions/checkout@v5
       - uses: astral-sh/setup-uv@v5
