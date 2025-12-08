@@ -19,3 +19,8 @@ def test_user_get():
     assert bob.username == "bob"
 
 
+def test_user_save():
+    """Save user to database and populate fields (e.g., id)."""
+    bob = User(email="bob@mail.com", username="bob", password="secret", bio="")
+    bob.save(get_session())
+    assert bob.id == 1

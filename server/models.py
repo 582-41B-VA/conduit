@@ -15,3 +15,9 @@ class User(SQLModel, table=True):
         """Return an instance matching the id or None if none was found."""
         return session.get(cls, id)
 
+    def save(self, session: Session) -> Self:
+        """Save instance to the DB and update fields (e.g., id)."""
+        session.add(self)
+        session.commit()
+        session.refresh(self)
+        return self
