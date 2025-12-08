@@ -7,4 +7,4 @@ class User(SQLModel, table=True):
     username: str
     password: str
     bio: str
-    image: str | None
+    image: str | None = Field(default=None)
