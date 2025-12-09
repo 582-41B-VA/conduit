@@ -25,3 +25,23 @@ def create_user(data: UserCreateBody):
             image=user.image,
         )
     )
+
+
+@app.get("/api/users", response_model=UserPublicBody)
+def get_user():
+    """Return currently authenticated user."""
+    # TODO: Should get currently authenticated user.
+    engine = create_engine("sqlite:///db.sqlite")
+    session = Session(engine)
+    user = User.get(session, 1)
+    # TODO: Check requirements for 404
+    if not user:
+        return 404
+    return UserPublicBody(
+        user=UserPublic(
+            email=user.email,
+            bio=user.bio,
+            username=user.username,
+            image=user.image,
+        )
+    )
