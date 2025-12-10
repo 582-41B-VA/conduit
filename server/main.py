@@ -1,9 +1,11 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import create_engine, Session
 from models import User
 from schemas import UserCreateBody, UserPublicBody, UserPublic
 
 app = FastAPI()
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"])
 
 
 @app.post("/api/users", response_model=UserPublicBody)
